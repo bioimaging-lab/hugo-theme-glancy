@@ -9,6 +9,11 @@ $font-family-base: "Lora";
 $headings-font-family: "Libre Franklin";
 $headings-font-weight: 600;
 
+$display-font-family: "Libre Franklin";
+$display-font-weight: 300;
+
+$line-height-base: 1.70;
+
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
 

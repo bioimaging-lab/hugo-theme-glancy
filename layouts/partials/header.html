@@ -1,6 +1,6 @@
-<nav class="navbar navbar-dark bg-dark" aria-label="Dark offcanvas navbar">
+<nav class="navbar navbar-dark bg-dark" aria-label="Navigation">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">{{ .Site.Title | upper }}</a>
+      <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title | upper }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,3 +37,9 @@
       </div>
     </div>
 </nav>
+
+{{- if not .IsHome -}}
+<div class="text-center mt-5 mb-5">
+  <span class="display-5">{{ .Title | upper }}</span>
+</div>
+{{- end -}}

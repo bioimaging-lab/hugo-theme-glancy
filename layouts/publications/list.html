@@ -1,0 +1,84 @@
+{{ define "main" }}
+<div class="container pb-2">
+    <div class="row justify-content-center">
+        <div class="col-11">
+            {{ .Content }}
+        </div>
+    </div>
+
+    <div class="row pub-filters align-items-center justify-items-start">
+        <div class="col-12 col-md-2 text-lg-end">
+            <h5 class="mt-1">Filter by:</h5>
+        </div>
+        <div class="col-8 col-md-6 col-lg-5 col-xl-3">
+            <select id="select-pubtype" class="form-select" onchange="updateDisplay()">
+                <option value="all">All publications</option>
+            </select>
+        </div>
+        <div class="col-4 col-md-3 col-lg-2">
+            <select id="select-year" class="form-select" onchange="updateDisplay()">
+                <option value="all">Any year</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="publist mt-4">
+        {{- range (sort .Pages ".Params.year" "desc") -}}
+        <div class="row publistitem mb-3" data-pubtype="{{ .Params.pubtype }}" data-pubyear="{{ .Params.year }}">
+            <div class="col-1 text-end"></div>
+            <div class="col">
+                {{ with .Params.doi -}}<a href="https://doi.org/{{ . }}" target="_blank">{{end}}{{ .Title }}{{ with .Params.doi }}</a>{{ end }}.
+                {{- $lenauths := len .Params.author -}}
+                {{- range $idx, $name := ( .Params.author | default "" ) -}}
+                    {{- print " " $name -}}
+                    {{- if gt $lenauths 1 -}}
+                        {{- if lt (add $idx 1) (sub $lenauths 1) -}}
+                        , 
+                        {{- else if eq (add $idx 1) (sub $lenauths 1) -}}
+                            {{- if gt $lenauths 2 -}},{{end}} and 
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}.                
+            {{- if eq .Params.pubtype "article" }}
+                <i>{{ .Params.journal }}</i> <b>{{ .Params.volume }}</b>, {{ .Params.pages }} ({{ .Params.year }})
+            {{- else if eq .Params.pubtype "proceedings" }}
+                In <i>{{ .Params.publication }}</i>{{ with .Params.volume }} <b>{{ .}}</b>{{ end }}, 
+                {{ with .Params.publication_subtitle }}{{ . }},{{ end }}
+                {{ with .Params.Pages }}{{ . }}{{ end }} ({{ .Params.year }})
+            {{- else if eq .Params.pubtype "bookchapter" }}
+                In <i>{{ .Params.publication }}</i>, Editors 
+                {{ with .Params.Editors -}}
+                    {{ $lenauths := len . -}}
+                    {{- range $idx, $name := ( . | default "" ) }}
+                        {{ $name -}}
+                        {{- if gt $lenauths 1 -}}
+                            {{- if lt (add $idx 1) (sub $lenauths 1) -}}
+                            ,
+                            {{- else if eq (add $idx 1) (sub $lenauths 1) -}}
+                                {{- if gt $lenauths 2 -}},{{end}} and
+                            {{- end -}}
+                        {{- end -}}
+                    {{- end -}}.
+                {{ end }}
+                {{ .Params.publisher }} ({{ .Params.year }})
+            {{- else if eq .Params.pubtype "patent" }}
+                ({{ .Params.number }}). {{ .Params.issuingbody }}. {{ .Params.month }} {{ .Params.day }}, {{ .Params.year }}.
+            {{- else if eq .Params.pubtype "preprint" }}    
+                Preprint on <i>{{ .Params.publication }}</i> ({{ .Params.year }}).
+            {{- else if eq .Params.pubtype "draft" }}
+                <i>Draft in preparation</i> ({{ .Params.year }}).
+            {{- end -}}            
+            <div class="row">
+                
+            </div>
+            </div>
+        </div>
+        
+        {{- end -}}
+    </div>
+</div>
+
+<script type="text/javascript">
+    initializeLists();
+</script>
+{{ end }}

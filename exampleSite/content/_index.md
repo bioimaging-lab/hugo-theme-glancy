@@ -4,7 +4,7 @@ draft: false
 
 menu:
     main:
-        weight: 0
+        weight: 10
 
 ---
 
