@@ -1,0 +1,12 @@
+name = "Glancy"
+license = "MIT"
+licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+description = "A Hugo theme for making laboratory websites"
+homepage = "http://example.com/"
+tags = ["responsive", "bootstrap", "mobile"]
+features = []
+min_version = "0.115.4"
+
+[author]
+  name = "Jian Wei Tay"
+  homepage = ""

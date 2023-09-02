@@ -1,0 +1,6 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My Lab Website'
+
+theme = "hugo-theme-glancy"
+themesDir = "../.."

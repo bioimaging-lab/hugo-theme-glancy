@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <div id="content" class="container">
+            <div class="row mt-3">
+                <div class="col">
+                    {{- if not .IsHome }}
+                    {{ .Title }}
+                    {{ end -}}
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                {{- block "main" . }}{{- end }}
+                </div>
+            </div>
+        </div>
+        {{- partial "footer.html" . -}}
+    </body>
+</html>
