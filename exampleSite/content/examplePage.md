@@ -12,6 +12,9 @@ menu:
 
 Lorem ipsum dolor sit amet, [consectetur](example) adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae turpis massa sed elementum tempus egestas. Tristique nulla aliquet enim tortor. Odio morbi quis commodo odio aenean sed [adipiscing diam donec](example). Suscipit tellus mauris a diam maecenas. Consequat mauris nunc congue nisi vitae suscipit. Ut sem viverra aliquet eget. Morbi quis commodo odio aenean. Ac tortor vitae purus faucibus ornare suspendisse sed nisi. Potenti nullam ac tortor vitae purus. Ultrices dui sapien eget mi proin sed libero enim. Egestas erat imperdiet sed euismod. Tempus imperdiet nulla malesuada pellentesque elit eget. Ut faucibus pulvinar elementum integer enim neque volutpat ac. Dictum sit amet justo donec enim diam vulputate ut pharetra. Ullamcorper velit sed ullamcorper morbi tincidunt. Augue mauris augue neque gravida in fermentum et sollicitudin ac. Cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum. Non blandit massa enim nec. Neque egestas congue quisque egestas diam in arcu cursus euismod.
 
+<button type="button" class="btn btn-primary">Primary</button>
+
+
 ## Heading 2
 
 ### Heading 3

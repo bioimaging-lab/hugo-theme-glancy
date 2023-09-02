@@ -4,3 +4,8 @@ title = 'My Lab Website'
 
 theme = "hugo-theme-glancy"
 themesDir = "../.."
+
+[markup]
+  [markup.goldmark]
+   [markup.goldmark.renderer]
+      unsafe = true
