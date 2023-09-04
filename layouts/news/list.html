@@ -1,23 +1,32 @@
 {{ define "main" }}
 {{- if not .IsHome -}}
-{{ $headerimg := .Resources.GetMatch "headerimg.*" }}
+{{ $headerimg := .Resources.GetMatch "featured.*" }}
 <div class="text-center page-header mb-4" {{- with $headerimg }}style="background-image: url('{{ .Permalink }}')"{{ end -}}>
   <span class="display-5 {{ with .Params.headerfont }}text-{{ . }}{{ end -}}">{{ .Title | upper }}</span>
 </div>
 {{- end -}}
 
+{{- $paginator := .Paginate (first 20 .Pages.ByDate) -}}
+
 <div class="container pb-2">
-     <div class="publist mt-4">
-        {{- range (.Paginate (first 20 .Pages.ByDate)).Pages -}}
-            <div class="col-1 text-end"></div>
-            <div class="col">
-                <div class="row">
-                    {{ .Title }}
-                    {{ .Summary }}                
-                </div>
-            </div>
-        {{- end -}}
+    {{- range $index, $page := $paginator.Pages -}}
+    <div class="row">
+        {{ $featimg := .Resources.GetMatch "featured*" }}
+        {{ with $featimg }}
+        {{- $cropped := .Fill "200x200 Center" -}}
+        <div class="col-12 mb-4 mb-md-0 col-md-4 col-lg-3">
+            <img src="{{ .Permalink }}" class="img-fluid">
+        </div>
+        {{ end }}
+        <div class="col">
+                <h6><a href="{{ .Permalink}}" class="stretched-link">{{ .Title }}</a></h6>
+                <p>{{ .Summary }}</p>                                       
+        </div>
     </div>
+    {{- if ne $index $paginator.TotalPages}}
+    <hr>
+    {{ end }}
+    {{- end -}}
 </div>
 
 {{ end }}

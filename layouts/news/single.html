@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container">
+<div class="row mt-5 mb-4 pb-3 border-bottom justify">
+    <div class="col">
+        <h1>{{ .Title }}</h2>
+        <small class="fst-italic">{{ .Summary }}</small>
+    </div>
+</div>
+
+{{ $headerimg := .Resources.GetMatch "featured.*" }}
+{{ $page := . }}
+{{- with $headerimg -}}
+<div class="row justify-content-center">
+    <div class="col">
+        <center>
+            <figure class="figure">
+                <img src="{{ .Permalink }}" class="img-fluid">
+                {{- with $page.Params.featcaption }}
+                <figcaption class="figure-caption mt-2">{{ . }}</figcaption>
+                {{- end -}}
+            </figure>
+        </center>
+    </div>
+</div>
+{{- end -}}
+
+<div class="row">
+    <div class="col">
+        <p class="fw-bold mt-3 mb-4">{{ .Date.Format "Jan. 2, 2006"}}</p>
+
+        {{ .Content }}
+    </div>
+</div>
+</div>
+
+{{ end }}

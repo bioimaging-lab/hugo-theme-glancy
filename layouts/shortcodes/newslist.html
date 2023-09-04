@@ -7,17 +7,18 @@
     <div class="col"><h4 class="section-title">NEWS</h4></div>
     <div class="col-4 text-end"><a href="{{ .Site.BaseURL }}{{ $section }}" class="link-arrow">View all <p>&#10132;</p></a></div>
 </div>
-<div class="row row-cols-1 row-ciks-md-2 row-cols-lg-4">
-    {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}    
     {{- $page := .RelPermalink -}}
     <div class="col mb-3">
-        <div class="card">
-            {{- with .Resources.GetMatch "cover*" -}}            
+        <div class="card h-100">
+            {{- with .Resources.GetMatch "featured*" -}}
+            {{- $cropped := .Fill "400x240 Center" -}}
+            <img src="{{ $cropped.Permalink }}" class="card-img-top">
             {{- end -}}
             <div class="card-body">
-                <h6 class="card-title">{{ .Date.Format "2 January 2006" }}</h6>
                 <p class="card-title"><a href="{{ .Permalink }}" class="stretched-link">{{ .Title }}</a></p>
-                <p class="card-text"><small class="text-body-secondary">{{ .Summary }}</small></p>
+                <p class="text-body-secondary"><small>{{ .Date.Format "2 January 2006" }}</small></p>
             </div>
         </div>
     </div>

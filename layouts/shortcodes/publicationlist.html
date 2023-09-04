@@ -12,7 +12,7 @@
     {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}
     {{- $page := .RelPermalink -}}
     <div class="col-12 mb-3">
-        <div class="card">
+        <div class="card card-publication-list">
             {{- with .Resources.GetMatch "cover*" -}}            
             {{- end -}}
                 <a href="https://doi.org/{{ .Params.doi }}" class="stretched-link">{{ .Title }}</a>
