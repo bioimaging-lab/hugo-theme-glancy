@@ -44,9 +44,3 @@
     </div>
 </nav>
 
-{{- if not .IsHome -}}
-{{ $headerimg := .Resources.GetMatch "headerimg.*" }}
-<div class="text-center page-header mb-4" {{- with $headerimg }}style="background-image: url('{{ .Permalink }}')"{{ end -}}>
-  <span class="display-5 {{ with .Params.headerfont }}text-{{ . }}{{ end -}}">{{ .Title | upper }}</span>
-</div>
-{{- end -}}

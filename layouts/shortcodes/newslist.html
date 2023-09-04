@@ -16,7 +16,7 @@
             {{- end -}}
             <div class="card-body">
                 <h6 class="card-title">{{ .Date.Format "2 January 2006" }}</h6>
-                <p class="card-title"><a href="https://doi.org/{{ .Params.doi }}" class="stretched-link">{{ .Title }}</a></p>
+                <p class="card-title"><a href="{{ .Permalink }}" class="stretched-link">{{ .Title }}</a></p>
                 <p class="card-text"><small class="text-body-secondary">{{ .Summary }}</small></p>
             </div>
         </div>
