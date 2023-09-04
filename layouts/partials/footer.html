@@ -1,7 +1,7 @@
 {{- $bootstrap := resources.Get "bootstrap/js/bootstrap.bundle.min.js" -}}
 {{- $js := slice $bootstrap | resources.Concat "js/bundle.js" | resources.Minify -}}
 
-<footer class="py-3 mt-4 bg-secondary">
-    <p class="fs-6 text-center text-bg-secondary">&copy; 2023 Bioimaging Lab</p>
+<footer class="py-3 mt-4 bg-dark">
+    <p class="text-center text-bg-dark">&copy; 2023 Bioimaging Lab</p>
     <script src="{{ $js.RelPermalink }}" defer></script>
 </footer>

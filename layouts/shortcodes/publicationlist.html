@@ -1,0 +1,29 @@
+{{- $section := .Get "section" | default "publications" -}}
+{{- $maxitems := .Get "maxitems" | default 4 -}}
+
+{{- $pages := where .Site.RegularPages "Section" $section -}}
+<div class="row mt-5">
+    <div class="col"><h5 class="section-title">PUBLICATIONS</h5></div>
+    <div class="col-4"><a href="$section.Permalink" class="link-arrow">View all <p>&#10132;</p></a></div>
+</div>
+<div class="row">
+    <div class="col">
+        {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}
+        {{- $page := .RelPermalink -}}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0"></div>
+                {{- with .Resources.GetMatch "cover*" -}}            
+                <div class="col-md-4">
+                  <img src="{{ .RelPermalink }}" class="img-fluid rounded-start">
+                </div>
+                {{- end -}}
+                <div class="col">
+                    <div class="card-body">
+                      <h6 class="card-title"><a href="https://doi.org/{{ .Params.doi }}" class="stretched-link">{{ .Title }}</a></h6>
+                      <p class="card-text"><small class="text-body-secondary">{{ .Params.journal }} ({{ .Params.year }})</small></p>
+                    </div>
+                </div>
+        </div>
+        {{- end -}}
+    </div>
+</div>

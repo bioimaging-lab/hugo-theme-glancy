@@ -14,6 +14,15 @@ $display-font-weight: 300;
 
 $line-height-base: 1.70;
 
+$headings-margin-bottom: 1.5rem;
+
+//Color
+$primary: #493bb1;
+$secondary: #292365;
+
+$body-color-dark: #1a1a1a;
+$body-bg-dark: #f9f9f9;
+
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
 
