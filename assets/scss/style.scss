@@ -83,6 +83,7 @@ h1, h2, h3 {
 }
 */
 
+/*
 #content a {
   text-decoration: none;
   border-bottom: 2px dashed transparent;
@@ -92,6 +93,15 @@ h1, h2, h3 {
 #content a:hover {
   color: #b8238d;
   border-color: #b8238d;
+}
+*/
+
+#content a {
+  text-decoration: none;
+}
+
+#content a:hover {
+  color: #b8238d;
 }
 
 footer {
