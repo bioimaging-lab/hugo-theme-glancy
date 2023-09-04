@@ -12,7 +12,8 @@ $headings-font-weight: 600;
 $display-font-family: "Libre Franklin";
 $display-font-weight: 300;
 
-$line-height-base: 1.70;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
 
 $headings-margin-bottom: 1.5rem;
 
@@ -22,6 +23,9 @@ $secondary: #292365;
 
 $body-color-dark: #1a1a1a;
 $body-bg-dark: #f9f9f9;
+
+$card-border-color: #d8d8d8;
+$card-border-radius: 5px;
 
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";

@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="container pb-2">
+     <div class="publist mt-4">
+        {{- range (.Paginate (first 20 .Pages.ByDate)).Pages -}}
+            <div class="col-1 text-end"></div>
+            <div class="col">
+                <div class="row">
+                    {{ .Title }}
+                    {{ .Summary }}                
+                </div>
+            </div>
+        {{- end -}}
+    </div>
+</div>
+
+{{ end }}
