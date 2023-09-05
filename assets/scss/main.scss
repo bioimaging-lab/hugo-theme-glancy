@@ -27,6 +27,16 @@ $body-bg-dark: #f9f9f9;
 $card-border-color: #d8d8d8;
 $card-border-radius: 0px;
 
+$navbar-toggler-font-size: 1rem;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 960px,
+  xxl: 960px
+);
+
 @import "../bootstrap/scss/variables";
 @import "../bootstrap/scss/variables-dark";
 

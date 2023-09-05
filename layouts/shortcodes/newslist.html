@@ -7,7 +7,7 @@
     <div class="col"><h4 class="section-title">NEWS</h4></div>
     <div class="col-4 text-end"><a href="{{ .Site.BaseURL }}{{ $section }}" class="link-arrow fs-small">View all <p>&rarr;</p></a></div>
 </div>
-<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4">
+<div class="row row-cols-2 row-cols-md-3">
     {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}    
     {{- $page := .RelPermalink -}}
     <div class="col mb-3">
