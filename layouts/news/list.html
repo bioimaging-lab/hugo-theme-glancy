@@ -19,13 +19,13 @@
         </div>
         {{ end }}
         <div class="col position-static">
-                <h4 class="mb-2"><a href="{{ .Permalink}}" class="stretched-link">{{ .Title }}</a></h4>
-                <p class="mb-2 text-body-secondary fs-small">{{ .Date.Format "2 January 2006" }}</p>
-                <p class="mb-1">{{ .Summary }}</p>                                       
+            <h4 class="fw-light mb-2"><a href="{{ .Permalink}}" class="stretched-link">{{ .Title }}</a></h4>
+            <p class="mb-2 text-body-secondary fs-small">{{ .Date.Format "2 January 2006" }}</p>
+            <p class="mb-1">{{ .Summary }}</p>                                       
         </div>
     </div>
     {{- if (lt (add $index 1) $paginator.NumberOfElements) }}
-    <hr>
+    <hr class="my-5">
     {{ end }}
     {{- end -}}
 
