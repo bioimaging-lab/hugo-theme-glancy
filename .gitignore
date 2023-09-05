@@ -3,5 +3,9 @@
 .github/
 
 # Hugo
-resources/
+resources/_gen/
+public/
 exampleSite/public/
+exampleSite/resources/_gen/
+
+.hugo_build.lock
