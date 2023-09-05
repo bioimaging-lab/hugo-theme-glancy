@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="container">
-<div class="row mt-5 mb-4 pb-3 border-bottom justify">
+    <div class="row mt-5 mb-4 pb-3 border-bottom justify">
     <div class="col">
         <h1>{{ .Title }}</h2>
         <small class="fst-italic">{{ .Summary }}</small>
@@ -26,9 +26,16 @@
 
 <div class="row">
     <div class="col">
-        <p class="fw-bold mt-3 mb-4">{{ .Date.Format "Jan. 2, 2006"}}</p>
-
+        <p class="fw-bold mt-3 mb-3">{{ .Date.Format "Jan. 2, 2006"}}</p>
         {{ .Content }}
+    </div>
+</div>
+
+<div class="row mt-2 border-top">
+    <div class="d-flex mt-2">
+        <div class="me-auto">
+            <a href="{{ .Site.BaseURL}}news" class="fs-small link-arrow link-arrow-left"><p>&larr;</p> Back to news</a>
+        </div>
     </div>
 </div>
 </div>

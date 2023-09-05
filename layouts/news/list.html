@@ -6,11 +6,11 @@
 </div>
 {{- end -}}
 
-{{- $paginator := .Paginate (first 20 .Pages.ByDate) -}}
+{{- $paginator := .Paginate .Pages.ByDate -}}
 
 <div class="container pb-2">
     {{- range $index, $page := $paginator.Pages -}}
-    <div class="row">
+    <div class="row position-relative">
         {{ $featimg := .Resources.GetMatch "featured*" }}
         {{ with $featimg }}
         {{- $cropped := .Fill "200x200 Center" -}}
@@ -18,15 +18,31 @@
             <img src="{{ .Permalink }}" class="img-fluid">
         </div>
         {{ end }}
-        <div class="col">
-                <h6><a href="{{ .Permalink}}" class="stretched-link">{{ .Title }}</a></h6>
-                <p>{{ .Summary }}</p>                                       
+        <div class="col position-static">
+                <h4 class="mb-2"><a href="{{ .Permalink}}" class="stretched-link">{{ .Title }}</a></h4>
+                <p class="mb-2 text-body-secondary fs-small">{{ .Date.Format "2 January 2006" }}</p>
+                <p class="mb-1">{{ .Summary }}</p>                                       
         </div>
     </div>
-    {{- if ne $index $paginator.TotalPages}}
+    {{- if (lt (add $index 1) $paginator.NumberOfElements) }}
     <hr>
     {{ end }}
     {{- end -}}
+
+    <div class="row">
+        <div class="d-flex mb-3">
+            {{- if $paginator.HasPrev -}}
+            <div class="me-auto p-2">
+                <a href="{{ $paginator.Prev.URL }}" class="link-arrow link-arrow-left"><p>&larr;</p> Newer</a>
+            </div>
+            {{- end -}}
+            {{- if $paginator.HasNext -}}
+            <div class="ms-auto p-2">
+                <a href="{{ $paginator.Next.URL }}" class="link-arrow">Older <p>&rarr;</p></a>
+            </div>
+            {{- end -}}
+        </div>
+    </div>
 </div>
 
 {{ end }}

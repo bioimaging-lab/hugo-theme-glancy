@@ -29,59 +29,9 @@ h1, h2, h3 {
 }
 
 .navbar {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
-/*
-#content a {
-  background-image: linear-gradient(
-    to right,
-    #800080	,
-    #800080 50%,
-    #54b3d6 50%
-  );
-  background-size: 200% 100%;
-  background-position: -100%;
-  display: inline-block;
-  padding: 1px 0;
-  position: relative;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease-in-out;
-}
-
-#content a:before{
-  content: '';
-  background: #800080;
-  display: block;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  transition: all 0.3s ease-in-out;
-}
-
-#content a:hover {
- background-position: 0;
-}
-
-#content a:hover::before{
-  width: 100%;
-}
-
-#content a {
-  text-decoration: underline 0.15em rgba(0, 0, 0, 1);
-  text-underline-offset: 0.2em;
-  transition: text-decoration-color 300ms, text-underline-offset 300ms;
-}
-
-#content a:hover {
-  //text-decoration-color: rgba(0, 0, 255, 1);
-  text-underline-offset: 0.4em;
-}
-*/
 
 /*
 #content a {
@@ -110,7 +60,6 @@ footer {
 }
 
 .link-arrow {
-  color: #ef443b;
   font-size: small;
 }
 
@@ -124,13 +73,17 @@ footer {
   transform: translateX(50%);
 }
 
+.link-arrow-left:hover p {
+  transform: translateX(-50%);
+}
+
 .section-title {
   font-family: "Libre Franklin";
   font-weight: 300;
 }
 
 .card {
-  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  transition: .2s transform cubic-bezier(.155,1.105,.295,1.12),.2s box-shadow,.2s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
 
 .card:hover {
@@ -144,3 +97,10 @@ footer {
   cursor: pointer;
 }
 
+.fs-small {
+  font-size: 0.75rem;
+}
+
+.card-text-date {
+  font-size: 0.65rem;
+}
