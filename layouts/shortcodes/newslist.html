@@ -2,25 +2,26 @@
 {{- $maxitems := .Get "maxitems" | default 6 -}}
 
 {{- $pages := where .Site.RegularPages "Section" $section -}}
-
-<div class="row mt-3">
-    <div class="col"><h4 class="section-title">NEWS</h4></div>
-    <div class="col-4 text-end"><a href="{{ .Site.BaseURL }}{{ $section }}" class="link-arrow fs-small">View all <p>&rarr;</p></a></div>
-</div>
-<div class="row row-cols-2 row-cols-md-3">
-    {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}    
-    {{- $page := .RelPermalink -}}
-    <div class="col mb-3">
-        <div class="card h-100">
-            {{- with .Resources.GetMatch "featured*" -}}
-            {{- $cropped := .Fill "400x240 Center" -}}
-            <img src="{{ $cropped.Permalink }}" class="card-img-top">
-            {{- end -}}
-            <div class="card-body">
-                <p class="card-text"><a href="{{ .Permalink }}" class="stretched-link link-secondary">{{ .Title }}</a></p>
-                <p class="card-text text-body-secondary card-text-date">{{ .Date.Format "2 January 2006" }}</p>
+<div class="container mb-4">
+    <div class="row mt-3">
+        <div class="col"><h4 class="section-title">NEWS</h4></div>
+        <div class="col-4 text-end"><a href="{{ .Site.BaseURL }}{{ $section }}" class="link-arrow fs-small">View all <p>&rarr;</p></a></div>
+    </div>
+    <div class="row row-cols-2 row-cols-md-3">
+        {{- range first $maxitems (sort $pages ".Params.year" "desc") -}}    
+        {{- $page := .RelPermalink -}}
+        <div class="col mb-3">
+            <div class="card h-100">
+                {{- with .Resources.GetMatch "featured*" -}}
+                {{- $cropped := .Fill "400x240 Center" -}}
+                <img src="{{ $cropped.Permalink }}" class="card-img-top">
+                {{- end -}}
+                <div class="card-body">
+                    <p class="card-title"><a href="{{ .Permalink }}" class="stretched-link link-secondary">{{ .Title }}</a></p>
+                    <p class="card-text text-body-secondary card-text-date">{{ .Date.Format "2 January 2006" }}</p>
+                </div>
             </div>
         </div>
+        {{- end -}}
     </div>
-    {{- end -}}
 </div>

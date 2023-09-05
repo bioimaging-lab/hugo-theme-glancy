@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="row pub-filters align-items-center justify-items-start">
+    <div class="row pub-filters align-items-center">
         <div class="col-12 col-md-2 text-lg-end align-middle">
             <h6 class="mt-1">Filter by:</h6>
         </div>
@@ -28,8 +28,9 @@
     </div>
 
     <div class="publist mt-4">
-        {{- range (sort .Pages ".Params.year" "desc") -}}
-        <div class="row publistitem mb-3" data-pubtype="{{ .Params.pubtype }}" data-pubyear="{{ .Params.year }}">
+        {{- range (sort .Pages ".Params.pubdate" "desc") -}}
+        {{- $pubyear := .Params.pubdate.Format "2006" }}
+        <div class="row publistitem mb-3" data-pubtype="{{ .Params.pubtype }}" data-pubyear="{{ $pubyear }}">
             <div class="col-1 text-end"></div>
             <div class="col">
                 {{ with .Params.doi -}}<a href="https://doi.org/{{ . }}" target="_blank">{{end}}{{ .Title }}{{ with .Params.doi }}</a>{{ end }}.
@@ -45,11 +46,11 @@
                     {{- end -}}
                 {{- end -}}.                
             {{- if eq .Params.pubtype "article" }}
-                <i>{{ .Params.journal }}</i> <b>{{ .Params.volume }}</b>, {{ .Params.pages }} ({{ .Params.year }})
+                <i>{{ .Params.journal }}</i> <b>{{ .Params.volume }}</b>, {{ .Params.pages }} ({{ .Params.pubdate.Format "2006" }})
             {{- else if eq .Params.pubtype "proceedings" }}
                 In <i>{{ .Params.publication }}</i>{{ with .Params.volume }} <b>{{ .}}</b>{{ end }}, 
                 {{ with .Params.publication_subtitle }}{{ . }},{{ end }}
-                {{ with .Params.Pages }}{{ . }}{{ end }} ({{ .Params.year }})
+                {{ with .Params.Pages }}{{ . }}{{ end }} ({{ .Params.pubdate.Format "2006" }})
             {{- else if eq .Params.pubtype "bookchapter" }}
                 In <i>{{ .Params.publication }}</i>, Editors 
                 {{ with .Params.Editors -}}
@@ -65,13 +66,13 @@
                         {{- end -}}
                     {{- end -}}.
                 {{ end }}
-                {{ .Params.publisher }} ({{ .Params.year }})
+                {{ .Params.publisher }} ({{ .Params.pubdate.Format "2006" }})
             {{- else if eq .Params.pubtype "patent" }}
-                ({{ .Params.number }}). {{ .Params.issuingbody }}. {{ .Params.month }} {{ .Params.day }}, {{ .Params.year }}.
+                ({{ .Params.number }}). {{ .Params.issuingbody }}. {{ .Params.pubdate.Format "Jan." }} {{ .Params.pubdate.Format "02" }}, {{ .Params.pubdate.Format "2006" }}.
             {{- else if eq .Params.pubtype "preprint" }}    
-                Preprint on <i>{{ .Params.publication }}</i> ({{ .Params.year }}).
+                Preprint on <i>{{ .Params.publication }}</i> ({{ .Params.pubdate.Format "2006" }}).
             {{- else if eq .Params.pubtype "draft" }}
-                <i>Draft in preparation</i> ({{ .Params.year }}).
+                <i>Draft in preparation</i> ({{ .Params.pubdate.Format "2006" }}).
             {{- end -}}            
             <div class="row">
                 

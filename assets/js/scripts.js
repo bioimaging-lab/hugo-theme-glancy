@@ -18,7 +18,7 @@ function updateDisplay() {
             x[i].style.display = "none";
         }
     }
-}
+};
 
 function initializeLists() {    
     var selpubtype = document.getElementById('select-pubtype');
@@ -78,7 +78,7 @@ function initializeLists() {
         }
         
         ctr++;
-        (x[i]).children[0].innerHTML = ctr;
+        (x[i]).children[0].innerHTML = ctr + ".";
 
     }
-}
+};
