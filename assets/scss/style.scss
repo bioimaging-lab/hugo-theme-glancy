@@ -1,10 +1,10 @@
 .navbar-brand {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
   font-weight: 200;
 }
 
 .nav-link {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
   font-weight: 200;
 }
 
@@ -13,8 +13,8 @@
 }
 
 .page-header {
-  padding-top: clamp(40px, 7vw, 100px);
-  padding-bottom: clamp(40px, 7vw, 100px);
+  padding-top: clamp(40px, 5vw, 100px);
+  padding-bottom: clamp(40px, 5vw, 100px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,38 +33,15 @@ h1, h2, h3 {
   padding-bottom: 15px;
 }
 
-/*
-#content a {
-  text-decoration: none;
-  border-bottom: 2px dashed transparent;
-  transition: all 0.2s ease-in;
-}
-
-#content a:hover {
-  color: #b8238d;
-  border-color: #b8238d;
-}
-*/
-
-#content a {
-  text-decoration: none;
-}
-
-/*
-#content a:hover {
-  color: #b8238d;
-}
-*/
-
 footer {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
   font-size: 10pt;
 }
 
 .link-arrow {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
   font-weight: 400;
-  color: #ef443b;
+  //color: #fd4c42;
 }
 
 .link-arrow p {
@@ -82,7 +59,7 @@ footer {
 }
 
 .section-title {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
   font-weight: 300;
 }
 
@@ -96,7 +73,7 @@ footer {
 }
 
 .card-title {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
   font-weight: 300;
   line-height: 1.4;
 }
@@ -113,7 +90,7 @@ footer {
 
 .card-text-date {
   font-size: 0.9rem;
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
 }
 
 .navbar-toggler {
@@ -127,21 +104,11 @@ footer {
 }
 
 .lead {
-  font-family: "Libre Franklin";
+  font-family: $font-family-sans-serif;
 }
 
 .btn {
-  font-family: "Libre Franklin";
-}
-
-.team-profile {
-  top: -75px;
-  left: 0;
-}
-
-.team-profile img {
-  width: 150px;
-  height: 150px;
+  font-family: $font-family-sans-serif;
 }
 
 .feather {
@@ -157,4 +124,22 @@ footer {
 
 .ff-sanserif {
   font-family: $font-family-sans-serif;
+}
+
+.card-img-slanted {
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  box-sizing: border-box;
+  clip-path: polygon(0% 80%, 0% 0%, 100% 0%, 100% 100%);
+}
+
+.card-icon img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  position: absolute;
+  top: 27%;
+  left: 1.25rem;
 }

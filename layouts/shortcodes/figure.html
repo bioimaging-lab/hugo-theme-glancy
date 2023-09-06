@@ -1,0 +1,6 @@
+<figure class="figure mt-3 mb-5">
+    <img src='{{ .Get "src" }}' class="figure-img img-fluid" alt="A generic square placeholder image with rounded corners in a figure.">
+    {{- with .Get "caption" }}
+    <figcaption class="figure-caption">{{ . }}</figcaption>
+    {{- end -}}
+</figure>

@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {{ .Content }}
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+    {{- range (sort .Pages ".Title" "asc") -}}
+        <div class="col mb-3">
+            <div class="card card-animated h-100">
+                <div class="card-img-slanted">
+                    {{- with .Resources.GetMatch "featured.*" }}
+                    {{ $cropped := .Fill "200x200 Center" }}
+                    <img src="{{ $cropped.Permalink }}" class="img-fluid card-img-top">
+                    {{- end -}}
+                </div>
+
+                {{- with .Resources.GetMatch "logo.*" }}
+                <div class="card-icon bg-white">                    
+                    {{- $cropped := .Fill "100x100 center" }}
+                    <img src="{{ $cropped.Permalink }}" class="rounded-circle img-fluid">                    
+                </div>
+                {{- end -}}
+
+                <div class="card-body">
+                    <h5 class="card-title mt-4">{{ .Title }}</h5>
+                    <div class="card-text">{{ .Summary }}</div>
+                </div>
+                <div class="card-footer bg-white border-0">
+                        {{- with .Params.links }}
+                        {{- range . -}}
+                        <a href="{{ .url }}" class="btn btn-warning stretched-link text-light"><i data-feather="{{ .icon }}"></i>{{- with .text}} &nbsp;&nbsp;{{ . }}{{- end -}}</a>
+                        {{- end -}}
+                        {{- end -}}
+                </div>
+            </div>
+        </div>
+    {{- end -}}
+    </div>
+
+</div>
+
+<script>
+    feather.replace();
+</script>
+
+{{ end }}

@@ -3,9 +3,11 @@
 {{ partial "page-title.html" . }}
 {{- end -}}
 
-<div class="row justify-content-center">
-    <div class="col-8">
-        {{ .Content }}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+            {{ .Content }}
+        </div>
     </div>
 </div>
 {{ end }}

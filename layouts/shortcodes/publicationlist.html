@@ -5,7 +5,7 @@
 <div class="container mb-4">
     <div class="row mt-3">
         <div class="col"><h4 class="section-title">PUBLICATIONS</h4></div>
-        <div class="col-4 text-end"><a href="{{ .Site.BaseURL }}{{ $section }}" class="link-arrow">View all <p>&rarr;</p></a></div>
+        <div class="col-4 text-end"><a href="{{ .Site.BaseURL }}{{ $section }}" class="link-arrow text-warning">View all <p>&rarr;</p></a></div>
     </div>
 
     {{- $pages := where .Site.RegularPages "Section" $section -}}    
