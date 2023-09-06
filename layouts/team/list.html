@@ -1,0 +1,48 @@
+{{ define "main" }}
+{{ partial "page-title.html" . }}
+
+<div class="container">
+    <div class="row justify-content-center">
+    {{-  range $idx, $page := (sort .Pages ".Weight" "asc") -}}
+
+    {{- $profileimg := .Resources.GetMatch "profile.*" }}
+
+    <div class="col-12 col-md-4">
+        <div class="card border-0 shadow-lg pt-5 my-5 position-relative">
+            <div class="card-body p-4 mb-3">
+                <div class="team-profile position-absolute w-100 text-center">
+                    {{- with $profileimg }}
+                    {{ $cropped := .Fill "150x150 Center" }}
+                    <img class="rounded-circle mx-auto d-inline-block shadow-sm" src="{{ $cropped.Permalink }}" alt="">
+                    {{- end -}}
+                </div>
+                <div class="card-text pt-4">
+                    <h5 class="mb-0 text-center">{{ .Params.name }}</h5>
+                    <div class="mb-3 text-center">{{ .Params.role }}</div>
+                    <div>{{ .Content }}</div>
+                </div>
+            </div>
+
+            {{- with .Params.links -}}
+            <div class="card-footer bg-primary border-0 text-center">
+                <ul class="list-inline mb-0 mx-auto">
+                    {{- range . -}}
+                    <li class="list-inline-item"><a href="{{ .url }}"><i data-feather="{{ .icon }}"></i></a></li>
+                    {{- end -}}
+                </ul>
+            </div>
+            {{- end -}}
+
+        </div>
+    </div>   
+   
+    {{- end -}}
+
+    </div>
+</div>
+
+<script>
+    feather.replace();
+</script>
+
+{{ end }}

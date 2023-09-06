@@ -25,12 +25,12 @@ h1, h2, h3 {
 }
 
 .navbar-toggler-icon {
-  font-size: 0.8rem;
+  font-size: 1.3rem;
 }
 
 .navbar {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /*
@@ -61,12 +61,16 @@ footer {
   font-size: 10pt;
 }
 
-
+.link-arrow {
+  font-family: "Libre Franklin";
+  font-weight: 400;
+  color: #ef443b;
+}
 
 .link-arrow p {
   display: inline-block;
   transition: 0.1s ease-in;
-  font-size: medium;
+  font-size: larger;
 }
 
 .link-arrow:hover p {
@@ -82,11 +86,11 @@ footer {
   font-weight: 300;
 }
 
-.card {
+.card-animated {
   transition: .2s transform cubic-bezier(.155,1.105,.295,1.12),.2s box-shadow,.2s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
 
-.card:hover {
+.card-animated:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
@@ -128,4 +132,29 @@ footer {
 
 .btn {
   font-family: "Libre Franklin";
+}
+
+.team-profile {
+  top: -75px;
+  left: 0;
+}
+
+.team-profile img {
+  width: 150px;
+  height: 150px;
+}
+
+.feather {
+  fill: none;
+  stroke: white;
+  stroke-width: 1.5;
+  transition: all 0.2s linear;
+}
+
+.feather:hover {
+  transform: scale(1.5);
+}
+
+.ff-sanserif {
+  font-family: $font-family-sans-serif;
 }

@@ -1,8 +1,5 @@
 {{ define "main" }}
-{{ $headerimg := .Resources.GetMatch "headerimg.*" }}
-<div class="text-center page-header mb-4" {{- with $headerimg }}style="background-image: url('{{ .Permalink }}')"{{ end -}}>
-  <span class="display-5 {{ with .Params.headerfont }}text-{{ . }}{{ end -}}">{{ .Title | upper }}</span>
-</div>
+{{ partial "page-title.html" . }}
 
 <div class="container pb-2">
     <div class="row justify-content-center">
@@ -46,7 +43,7 @@
                     {{- end -}}
                 {{- end -}}.                
             {{- if eq .Params.pubtype "article" }}
-                <i>{{ .Params.journal }}</i> <b>{{ .Params.volume }}</b>, {{ .Params.pages }} ({{ .Params.pubdate.Format "2006" }})
+                <i>{{ .Params.publication }}</i> <b>{{ .Params.volume }}</b>, {{ .Params.pages }} ({{ .Params.pubdate.Format "2006" }})
             {{- else if eq .Params.pubtype "proceedings" }}
                 In <i>{{ .Params.publication }}</i>{{ with .Params.volume }} <b>{{ .}}</b>{{ end }}, 
                 {{ with .Params.publication_subtitle }}{{ . }},{{ end }}
