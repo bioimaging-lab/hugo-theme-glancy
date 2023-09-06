@@ -103,6 +103,11 @@ footer {
   background-position: center;
 }
 
+.hero-image {
+  min-height: 70vh;
+  max-height: 90vh;
+}
+
 .lead {
   font-family: $font-family-sans-serif;
 }
@@ -143,3 +148,4 @@ footer {
   top: 27%;
   left: 1.25rem;
 }
+
