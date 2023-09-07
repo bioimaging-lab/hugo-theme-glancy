@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ partial "page-title" . }}
 
-{{- $paginator := .Paginate .Pages.ByDate -}}
+{{- $paginator := .Paginate .Pages.ByDate.Reverse -}}
 
 <div class="container pb-2">
     {{- range $index, $page := $paginator.Pages -}}
