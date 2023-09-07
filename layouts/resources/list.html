@@ -41,7 +41,7 @@
                 <div class="card-footer bg-white border-0">
                         {{- with .Params.links }}
                         {{- range . -}}
-                        <a href="{{ .url }}" class="btn btn-warning stretched-link text-light"><i data-feather="{{ .icon }}"></i>{{- with .text}} &nbsp;&nbsp;{{ . }}{{- end -}}</a>
+                        <a href="{{ .url }}" class="btn btn-warning stretched-link text-light" target="_blank"><i data-feather="{{ .icon }}"></i>{{- with .text}} &nbsp;&nbsp;{{ . }}{{- end -}}</a>
                         {{- end -}}
                         {{- end -}}
                 </div>
