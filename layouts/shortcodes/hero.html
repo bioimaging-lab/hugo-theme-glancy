@@ -1,16 +1,16 @@
 <div class="container-fluid px-4 hero-container mb-4">
-    <div class="container">
+    <div class="container hero-container-inner">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5 justify-content-center">
             {{- with .Get "src" }}
-            <div class="col-12 col-md-10 col-lg-8">
+            <div class="col-12 col-md-10 col-lg-7">
                 <center>
                     <img src="{{ . }}" class="d-block mx-lg-auto img-fluid hero-image" loading="lazy">
                 </center>
             </div>
             {{- end -}}
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 {{- with .Get "title" -}}
-                <h1 class="display-5 text-light lh-1 mb-3">{{ . }}</h1>
+                <h1 class="display-3 text-light lh-1 mb-3">{{ . }}</h1>
                 {{- end -}}
                 {{- with .Get "text" -}}
                 <p class="lead text-light">{{ . }}</p>

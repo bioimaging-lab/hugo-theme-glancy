@@ -8,13 +8,21 @@
         </div>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+    {{- range (sort .Sections "Weight" "asc") }}
+    <div class="row">
+        <div class="col">
+            <h1 class="mb-3">{{ .Title }}</h1>
+            <p>{{ .Content }}</p>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 mb-4 mt-2">
     {{- range (sort .Pages ".Title" "asc") -}}
         <div class="col mb-3">
             <div class="card card-animated h-100">
-                <div class="card-img-slanted">
+                <div class="card-img-slanted border-0">
                     {{- with .Resources.GetMatch "featured.*" }}
-                    {{ $cropped := .Fill "200x200 Center" }}
+                    {{ $cropped := .Fill "350x300 Center" }}
                     <img src="{{ $cropped.Permalink }}" class="img-fluid card-img-top">
                     {{- end -}}
                 </div>
@@ -41,6 +49,8 @@
         </div>
     {{- end -}}
     </div>
+
+    {{- end -}}
 
 </div>
 

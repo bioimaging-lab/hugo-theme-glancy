@@ -1,5 +1,6 @@
 
-
-<footer class="py-3 mt-4 bg-dark">
-    <div class="text-center text-bg-dark align-middle">&copy; 2023 Bioimaging Lab</div>
+<footer class="py-4 mt-5 bg-dark">
+    {{- with .Site.Copyright }}
+    <div class="text-center text-bg-dark align-middle">&copy; {{ now.Format "2006" }} {{ . }}</div>
+    {{ end -}}
 </footer>

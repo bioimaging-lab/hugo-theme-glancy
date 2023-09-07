@@ -1,4 +1,4 @@
 {{ $headerimg := .Resources.GetMatch "headerimg.*" }}
-<div class="text-center page-header mb-4" {{- with $headerimg }}style="background: no-repeat center url('{{ .Permalink }}'); background-size: cover;"{{ end -}}>
+<div class="text-center page-header mb-4{{- with $headerimg }}" style="background: no-repeat center url('{{ .Permalink }}'); background-size: cover;"{{- else }} py-5"{{ end -}}>
     <span class="display-3 {{ with .Params.headerfont }}text-{{ . }}{{ end -}}">{{ .Title | upper }}</span>
 </div>
